@@ -40,5 +40,20 @@ class AppController extends Controller {
 				$this->redirect('/');
 			}
 		}
+		else
+		{
+			$userData = $this->Session->read('UserData');
+			$roleID = $userData[0]['User']['role_id'];
+			$this->loadModel('Roles');
+			$roles = $this->Roles->find('all', array('conditions' => array('Roles.id' => "$roleID")));			
+			$roleSF = $roles[0]['Roles']['short_form'];
+			$this->set('RoleSF', $roleSF);
+			//admin check
+			if(($this->params['controller'] == 'roles' || $this->params['controller'] == 'verticals' || $this->params['controller'] == 'skills' || $this->params['controller'] == 'runits') && ($roleSF != 'ADM'))
+			{
+				$this->Session->setFlash(__('You do not have access for managing Roles.'));
+				$this->redirect(array('controller' => 'userinfos', 'action' => 'logout'));
+			}
+		}
 	}
 }

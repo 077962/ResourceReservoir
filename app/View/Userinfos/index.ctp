@@ -1,5 +1,5 @@
 <div class="userinfos index">
-	<h2><?php echo __('Userinfos'); ?></h2>
+	<h2><?php echo __('User Informations'); ?></h2>
 	<div class="addNewLinkOnIndex"><?php echo $this->Html->link(__('New User Info'), array('action' => 'add')); ?></div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -25,7 +25,10 @@
 		<td><?php echo h($userinfo['Userinfo']['username']); ?>&nbsp;</td>
 		<td><?php echo h($userinfo['Userinfo']['password']); ?>&nbsp;</td>
 		<td><?php echo h($userinfo['Userinfo']['email']); ?>&nbsp;</td>
-		<td><?php echo h($userinfo['Userinfo']['photo']); ?>&nbsp;</td>
+		<td><?php 
+				$photo = $userinfo['Userinfo']['photo'];
+				echo $this->Html->image($photo, array('alt' => $photo, 'border' => '0', 'height' => '100'));?>&nbsp;
+		</td>
 		<td><?php echo h($userinfo['Userinfo']['contact_number']); ?>&nbsp;</td>
 		<td><?php echo h($userinfo['Userinfo']['address']); ?>&nbsp;</td>
 		<td><?php echo h($userinfo['Userinfo']['extra_comments']); ?>&nbsp;</td>

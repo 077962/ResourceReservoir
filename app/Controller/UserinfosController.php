@@ -73,6 +73,17 @@ class UserinfosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Userinfo->create();
+			$frmData = $this->request->data;
+			//print_r($frmData['Userinfo']['photo']['size']); echo $this->webroot;exit;			
+			if (is_uploaded_file($frmData['Userinfo']['photo']['tmp_name'])) {
+				move_uploaded_file(
+					$this->request->data['Userinfo']['photo']['tmp_name'],
+					WWW_ROOT.'/img/' . $this->request->data['Userinfo']['photo']['name']
+				);
+
+				// store the filename in the array to be saved to the db
+				$this->request->data['Userinfo']['photo'] = $this->request->data['Userinfo']['photo']['name'];
+			}
 			if ($this->Userinfo->save($this->request->data)) {
 				$this->Session->setFlash(__('The userinfo has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -96,6 +107,20 @@ class UserinfosController extends AppController {
 			throw new NotFoundException(__('Invalid userinfo'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			$frmData = $this->request->data;
+			//print_r($frmData['Userinfo']['photo']['size']); echo $this->webroot;exit;
+			
+			if (is_uploaded_file($frmData['Userinfo']['photo']['tmp_name'])) {
+				move_uploaded_file(
+					$this->request->data['Userinfo']['photo']['tmp_name'],
+					WWW_ROOT.'/img/' . $this->request->data['Userinfo']['photo']['name']
+				);
+
+				// store the filename in the array to be saved to the db
+				$this->request->data['Userinfo']['photo'] = $this->request->data['Userinfo']['photo']['name'];
+			}
+
+			
 			if ($this->Userinfo->save($this->request->data)) {
 				$this->Session->setFlash(__('The userinfo has been saved.'));
 				return $this->redirect(array('action' => 'index'));

@@ -41,14 +41,25 @@ $cakeDescription = __d('cake_dev', 'RR: Hackathon 2013');
 	<div id="container">
 		<div id="header">
 			<h1>
-				<?php
-					echo $this->Html->link($cakeDescription, '/'); echo '&nbsp; &nbsp; &nbsp;'; 
-					if($this->Session->read('UserData')) {					
+				<?php			
+					//echo $this->Html->image('NTTAMSTitleLogo.png', array('alt' => $cakeDescription, 'border' => '0'));
+					if($this->Session->read('UserData')) {	
+						echo '&nbsp;<div style="float:right;">';
+						echo $this->Html->link($cakeDescription, '/users'); echo '&nbsp; &nbsp; &nbsp;';
+						$userData = $this->Session->read('UserData');
+						$firstName = $userData[0]['User']['first_name'];
+						$lastName = $userData[0]['User']['last_name'];
+						echo '<b>Welcome</b> '.$lastName.','.$firstName.'&nbsp;&nbsp;&nbsp;';
 						echo $this->Html->link('logout', '/userinfos/logout');
+						echo '</div>';
 					}
+					else
+					{
+						echo '&nbsp;<div style="float:right;">'.$this->Html->link($cakeDescription, '/').'</div>'; echo '&nbsp; &nbsp; &nbsp;';
+					}					
 				?>
 			</h1>
-		</div>
+		</div>		
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
