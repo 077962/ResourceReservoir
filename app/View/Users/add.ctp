@@ -7,7 +7,7 @@
 		echo $this->Form->input('last_name');
 		echo $this->Form->input('role_id');
 		echo $this->Form->input('project_id');
-		echo $this->Form->input('manager_id');
+		echo $this->Form->input('manager_id', array('empty' => true));
 		echo $this->Form->input('is_active');
 		echo $this->Form->input('Skill');
 	?>

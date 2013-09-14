@@ -2,9 +2,9 @@
 <h2><?php echo __('Runit'); ?></h2>
 <div class="addNewLinkOnIndex">
 	<?php 
-		echo $this->Html->link(__('Edit Runit'), array('action' => 'edit', $runit['Runit']['id'])); 
+		echo $this->Html->link(__('Edit RU'), array('action' => 'edit', $runit['Runit']['id'])); 
 		echo '&nbsp; &nbsp; &nbsp;';
-		echo $this->Form->postLink(__('Delete Runit'), array('action' => 'delete', $runit['Runit']['id']), null, __('Are you sure you want to delete # %s?', $runit['Runit']['id']));
+		echo $this->Form->postLink(__('Delete RU'), array('action' => 'delete', $runit['Runit']['id']), null, __('Are you sure you want to delete # %s?', $runit['Runit']['id']));
 		echo '&nbsp; &nbsp; &nbsp;';
 		echo $this->Html->link(__('New RU'), array('action' => 'add'));
 	?>
@@ -20,7 +20,7 @@
 			<?php echo h($runit['Runit']['ru_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User'); ?></dt>
+		<dt><?php echo __('Manager'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($runit['User']['id'], array('controller' => 'users', 'action' => 'view', $runit['User']['id'])); ?>
 			&nbsp;

@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Project'); ?></legend>
 	<?php
 		echo $this->Form->input('project_name');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array('label'=>'Manager', 'empty'=>true));
 		echo $this->Form->input('vertical_id');
 		echo $this->Form->input('projectstatus_id');
 		echo $this->Form->input('runit_id');

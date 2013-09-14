@@ -12,7 +12,7 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('ru_name');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array('label'=>'Manager'));
 		echo $this->Form->input('is_active');
 	?>
 	</fieldset>

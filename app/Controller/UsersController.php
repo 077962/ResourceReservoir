@@ -57,10 +57,11 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+		$managers = $this->User->find('list');
 		$roles = $this->User->Role->find('list');
 		$projects = $this->User->Project->find('list');
 		$skills = $this->User->Skill->find('list');
-		$this->set(compact('roles', 'projects', 'skills'));
+		$this->set(compact('managers', 'roles', 'projects', 'skills'));
 	}
 
 /**
@@ -85,10 +86,11 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
+		$managers = $this->User->find('list');
 		$roles = $this->User->Role->find('list');
 		$projects = $this->User->Project->find('list');
 		$skills = $this->User->Skill->find('list');
-		$this->set(compact('roles', 'projects', 'skills'));
+		$this->set(compact('managers', 'roles', 'projects', 'skills'));
 	}
 
 /**

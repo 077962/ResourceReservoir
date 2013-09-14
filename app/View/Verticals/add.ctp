@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Vertical'); ?></legend>
 	<?php
 		echo $this->Form->input('vertical_name');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array('label'=>'Manager', 'empty'=>true));
 		echo $this->Form->input('is_active');
 	?>
 	</fieldset>

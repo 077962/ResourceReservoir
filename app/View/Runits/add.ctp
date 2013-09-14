@@ -4,7 +4,7 @@
 		<legend><?php echo __('Add Runit'); ?></legend>
 	<?php
 		echo $this->Form->input('ru_name');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('user_id', array('label'=>'Manager'));
 		echo $this->Form->input('is_active');
 	?>
 	</fieldset>
