@@ -1,5 +1,6 @@
 <div class="projects index">
 	<h2><?php echo __('Projects'); ?></h2>
+	<div class="addNewLinkOnIndex"><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?></div>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -57,14 +58,13 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Verticals'), array('controller' => 'verticals', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Vertical'), array('controller' => 'verticals', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projectstatuses'), array('controller' => 'projectstatuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Projectstatus'), array('controller' => 'projectstatuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Runits'), array('controller' => 'runits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Runit'), array('controller' => 'runits', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>		
+		<li class="currentAction"><?php echo $this->Html->link(__('List Projects'), array('controller' => 'projects', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Reporting Units'), array('controller' => 'runits', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List User Info'), array('controller' => 'userinfos', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Ratings'), array('controller' => 'ratings', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Verticals'), array('controller' => 'verticals', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Skills'), array('controller' => 'skills', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -740,3 +740,21 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+/*User defined*/
+.addNewLinkOnIndex {
+	float:right;
+}
+
+.currentAction a {
+	background:#D8D830 !Important;
+}
+
+.relatedAction a {
+	background:#E8E8C1 !Important;
+}
+
+.rightContent {
+	width:78%;
+	float: right;
+}

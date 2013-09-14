@@ -1,5 +1,14 @@
 <div class="runits view">
 <h2><?php echo __('Runit'); ?></h2>
+<div class="addNewLinkOnIndex">
+	<?php 
+		echo $this->Html->link(__('Edit Runit'), array('action' => 'edit', $runit['Runit']['id'])); 
+		echo '&nbsp; &nbsp; &nbsp;';
+		echo $this->Form->postLink(__('Delete Runit'), array('action' => 'delete', $runit['Runit']['id']), null, __('Are you sure you want to delete # %s?', $runit['Runit']['id']));
+		echo '&nbsp; &nbsp; &nbsp;';
+		echo $this->Html->link(__('New RU'), array('action' => 'add'));
+	?>
+ </div>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -36,14 +45,14 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Runit'), array('action' => 'edit', $runit['Runit']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Runit'), array('action' => 'delete', $runit['Runit']['id']), null, __('Are you sure you want to delete # %s?', $runit['Runit']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Runits'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Runit'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projects'), array('controller' => 'projects', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Project'), array('controller' => 'projects', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Projects'), array('controller' => 'projects', 'action' => 'index')); ?> </li>		
+		<li class="relatedAction"><?php echo $this->Html->link(__('List Reporting Units'), array('controller' => 'runits', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List User Info'), array('controller' => 'userinfos', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Ratings'), array('controller' => 'ratings', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Verticals'), array('controller' => 'verticals', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Skills'), array('controller' => 'skills', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">

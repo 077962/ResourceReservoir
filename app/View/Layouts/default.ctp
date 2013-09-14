@@ -40,7 +40,14 @@ $cakeDescription = __d('cake_dev', 'RR: Hackathon 2013');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<h1>
+				<?php
+					echo $this->Html->link($cakeDescription, '/'); echo '&nbsp; &nbsp; &nbsp;'; 
+					if($this->Session->read('UserData')) {					
+						echo $this->Html->link('logout', '/userinfos/logout');
+					}
+				?>
+			</h1>
 		</div>
 		<div id="content">
 

@@ -33,4 +33,12 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar', 'Session');
+	
+	function beforeFilter() {
+		if(!$this->Session->read('UserData')) {
+			if($this->params['controller'] != 'userinfos' && $this->params['action'] != 'login') {
+				$this->redirect('/');
+			}
+		}
+	}
 }

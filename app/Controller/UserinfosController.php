@@ -20,6 +20,31 @@ class UserinfosController extends AppController {
  *
  * @return void
  */
+	public function login() {
+		if(isset($this->data['User'])) {
+			$UserId=$this->data['User']['username'];
+			$password=$this->data['User']['password'];
+			if($Userdata=$this->Userinfo->find('all', array('conditions' => array('username'=>"$UserId",'password'=>"$password")))) {			
+				if($Userdata[0]['User']['is_active']) {				
+					$this->Session->write('UserData',$Userdata);
+					$this->redirect(array('controller' => 'users', 'action' => 'index'));
+					exit;
+				}
+				else {
+					$this->Session->setFlash(__('Your account is not active. Please contact your manager.'));
+				}
+			}
+			else {
+				$this->Session->setFlash(__('Invalid username and/or password. Please, try again.'));
+			}
+		}
+	}
+	
+	public function logout() {
+		$this->Session->delete('UserData');
+		$this->redirect('/');
+	}
+	
 	public function index() {
 		$this->Userinfo->recursive = 0;
 		$this->set('userinfos', $this->Paginator->paginate());

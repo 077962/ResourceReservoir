@@ -1,4 +1,13 @@
 <div class="projects view">
+<div class="addNewLinkOnIndex">
+	<?php 
+		echo $this->Html->link(__('Edit Project'), array('action' => 'edit', $project['Project']['id']));
+		echo '&nbsp; &nbsp; &nbsp;';
+		echo $this->Form->postLink(__('Delete Project'), array('action' => 'delete', $project['Project']['id']), null, __('Are you sure you want to delete # %s?', $project['Project']['id']));
+		echo '&nbsp; &nbsp; &nbsp;';
+		echo $this->Html->link(__('New Project'), array('action' => 'add'));
+	?>
+ </div>
 <h2><?php echo __('Project'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -51,18 +60,14 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Project'), array('action' => 'edit', $project['Project']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Project'), array('action' => 'delete', $project['Project']['id']), null, __('Are you sure you want to delete # %s?', $project['Project']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projects'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Verticals'), array('controller' => 'verticals', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Vertical'), array('controller' => 'verticals', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Projectstatuses'), array('controller' => 'projectstatuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Projectstatus'), array('controller' => 'projectstatuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Runits'), array('controller' => 'runits', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Runit'), array('controller' => 'runits', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>		
+		<li class="relatedAction"><?php echo $this->Html->link(__('List Projects'), array('controller' => 'projects', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Reporting Units'), array('controller' => 'runits', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List User Info'), array('controller' => 'userinfos', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Ratings'), array('controller' => 'ratings', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Verticals'), array('controller' => 'verticals', 'action' => 'index')); ?> </li>		
+		<li><?php echo $this->Html->link(__('List Skills'), array('controller' => 'skills', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -81,7 +86,7 @@
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php foreach ($project['User'] as $user): ?>
+	<?php $i = 0; foreach ($project['User'] as $user): if(is_array($user)):?>
 		<tr>
 			<td><?php echo $user['id']; ?></td>
 			<td><?php echo $user['first_name']; ?></td>
@@ -98,7 +103,7 @@
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'users', 'action' => 'delete', $user['id']), null, __('Are you sure you want to delete # %s?', $user['id'])); ?>
 			</td>
 		</tr>
-	<?php endforeach; ?>
+	<?php endif;endforeach; ?>
 	</table>
 <?php endif; ?>
 
